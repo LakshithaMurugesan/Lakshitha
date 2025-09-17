@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physiotherapist Portfolio</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #006d77;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      color: #006d77;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .about, .services, .contact {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background: #edf6f9;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact input, .contact textarea {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .contact button {
+      background: #006d77;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .contact button:hover {
+      background: #004e53;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #006d77;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Dr. John Doe</h1>
+    <p>Physiotherapist | Sports Injury Specialist | Wellness Coach</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      I am a licensed physiotherapist with over 8 years of experience in helping patients recover from injuries, 
+      improve mobility, and live pain-free lives. I specialize in sports medicine, rehabilitation, and preventive care.
+    </p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <h2>My Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Sports Injury Rehab</h3>
+        <p>Personalized rehabilitation programs to restore strength and performance after injuries.</p>
+      </div>
+      <div class="service-card">
+        <h3>Post-Surgery Recovery</h3>
+        <p>Guided therapy sessions to ensure faster and safer post-operative recovery.</p>
+      </div>
+      <div class="service-card">
+        <h3>Pain Management</h3>
+        <p>Evidence-based techniques to alleviate chronic pain and restore function.</p>
+      </div>
+      <div class="service-card">
+        <h3>Wellness Coaching</h3>
+        <p>Holistic approach to maintaining physical and mental well-being.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="formResponse" style="color:green; margin-top:10px;"></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Dr. John Doe | Physiotherapist Portfolio</p>
+  </footer>
+
+  <script>
+    // Contact form validation and response
+    const form = document.getElementById('contactForm');
+    const responseMsg = document.getElementById('formResponse');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if(name && email && message) {
+        responseMsg.textContent = "Thank you, " + name + "! Your message has been sent successfully.";
+        form.reset();
+      } else {
+        responseMsg.textContent = "Please fill in all fields.";
+        responseMsg.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>
